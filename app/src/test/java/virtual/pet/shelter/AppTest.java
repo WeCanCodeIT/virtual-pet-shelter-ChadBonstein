@@ -7,8 +7,27 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test void petHasName() {
+        VirtualpetShelter shelter = new VirtualpetShelter();
+        Virtualpet pet = new Virtualpet("Chad");
+
+        assertNotNull(pet.getName());
     }
+
+        @Test void canAdmit() {
+        VirtualpetShelter shelter = new VirtualpetShelter();
+        Virtualpet pet = new Virtualpet("Chad");
+        shelter.admitPet(pet );
+        assertEquals(shelter.getPetMap().size(),1);
+    }
+
+            @Test void canAdopt() {
+        VirtualpetShelter shelter = new VirtualpetShelter();
+        Virtualpet pet = new Virtualpet("Chad");
+        shelter.admitPet(pet );
+        assertEquals(shelter.getPetMap().size(),1);
+        shelter.checkoutPet(1);
+        assertEquals(shelter.getPetMap().size(),0);
+    }
+
 }
